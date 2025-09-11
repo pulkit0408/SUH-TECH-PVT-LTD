@@ -43,7 +43,7 @@ const ServicesSection = () => {
   return (
     <section className="py-20 bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-center text-white mb-16">
+        <h2 className="text-5xl font-bold text-center text-white mb-16 tracking-tight">
           Services we offer
         </h2>
 
@@ -53,14 +53,14 @@ const ServicesSection = () => {
             <div className="grid lg:grid-cols-3 gap-8 w-full max-w-6xl">
               {/* Previous Service (Hidden on mobile) */}
               <div className="hidden lg:block">
-                <div className="bg-gray-800 rounded-2xl p-8 text-center opacity-50 transform scale-90 border border-gray-700">
+                <div className="bg-gray-800 rounded-2xl p-8 text-center opacity-60 transform scale-90 border border-gray-700">
                   <div className="w-16 h-16 bg-gradient-to-r from-gray-600 to-gray-700 rounded-full mx-auto mb-6 flex items-center justify-center text-2xl">
                     {services[(currentService - 1 + services.length) % services.length].icon}
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-300 mb-4">
+                  <h3 className="text-xl font-bold text-gray-200 mb-4">
                     {services[(currentService - 1 + services.length) % services.length].title}
                   </h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">
+                  <p className="text-gray-300 text-sm leading-relaxed font-light">
                     {services[(currentService - 1 + services.length) % services.length].description.substring(0, 100)}...
                   </p>
                 </div>
@@ -68,14 +68,14 @@ const ServicesSection = () => {
 
               {/* Current Service */}
               <div className="lg:col-span-1">
-                <div className="bg-gradient-to-br from-gray-800 to-gray-900 border-2 border-gray-600 rounded-2xl p-8 text-center transform hover:scale-105 transition-all shadow-xl">
-                  <div className="w-20 h-20 bg-gradient-to-r from-gray-600 to-gray-700 rounded-full mx-auto mb-6 flex items-center justify-center text-3xl shadow-lg">
+                <div className="bg-gradient-to-br from-gray-800 to-gray-900 border-2 border-white/20 rounded-2xl p-8 text-center transform hover:scale-105 transition-all shadow-2xl">
+                  <div className="w-20 h-20 bg-white rounded-full mx-auto mb-6 flex items-center justify-center text-3xl shadow-lg">
                     {services[currentService].icon}
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-6">
+                  <h3 className="text-2xl font-bold text-white mb-6 tracking-tight">
                     {services[currentService].title}
                   </h3>
-                  <p className="text-gray-300 leading-relaxed">
+                  <p className="text-gray-100 leading-relaxed text-lg font-light">
                     {services[currentService].description}
                   </p>
                 </div>
@@ -83,14 +83,14 @@ const ServicesSection = () => {
 
               {/* Next Service (Hidden on mobile) */}
               <div className="hidden lg:block">
-                <div className="bg-gray-800 rounded-2xl p-8 text-center opacity-50 transform scale-90 border border-gray-700">
+                <div className="bg-gray-800 rounded-2xl p-8 text-center opacity-60 transform scale-90 border border-gray-700">
                   <div className="w-16 h-16 bg-gradient-to-r from-gray-600 to-gray-700 rounded-full mx-auto mb-6 flex items-center justify-center text-2xl">
                     {services[(currentService + 1) % services.length].icon}
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-300 mb-4">
+                  <h3 className="text-xl font-bold text-gray-200 mb-4">
                     {services[(currentService + 1) % services.length].title}
                   </h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">
+                  <p className="text-gray-300 text-sm leading-relaxed font-light">
                     {services[(currentService + 1) % services.length].description.substring(0, 100)}...
                   </p>
                 </div>
@@ -129,7 +129,7 @@ const ServicesSection = () => {
 
           {/* Service Counter */}
           <div className="flex justify-center mt-4">
-            <span className="text-sm text-gray-400">
+            <span className="text-sm text-gray-300 font-medium tracking-wider">
               0{currentService + 1} — 0{services.length}
             </span>
           </div>

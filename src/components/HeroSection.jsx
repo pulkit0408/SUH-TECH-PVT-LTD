@@ -8,17 +8,17 @@ const HeroSection = () => {
           <div className="relative z-10">
             <div className="border-2 border-dashed border-gray-600 rounded-xl p-8 bg-gray-900/80 backdrop-blur-sm">
               <h1 className="text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                Great <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-300 to-white">Product</span> is
+                Great <span className="text-white">Product</span> is
                 <br />
-                <span className="text-white">built by great</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-300 to-gray-100">teams</span>
+                <span className="text-gray-100">built by great</span> <span className="text-white font-extrabold">teams</span>
               </h1>
               
-              <p className="text-gray-300 text-lg mb-8 leading-relaxed">
+              <p className="text-gray-200 text-xl mb-8 leading-relaxed font-light">
                 We help build and manage a team of world-class developers 
                 to bring your vision to life
               </p>
               
-              <button className="bg-gradient-to-r from-gray-700 to-gray-800 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:from-gray-600 hover:to-gray-700 transition-all transform hover:scale-105 shadow-lg border border-gray-600">
+              <button className="bg-white text-black px-8 py-4 rounded-xl text-lg font-bold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl">
                 Let's get started!
               </button>
             </div>

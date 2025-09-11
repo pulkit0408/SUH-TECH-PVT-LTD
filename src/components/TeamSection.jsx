@@ -9,18 +9,18 @@ const TeamSection = () => {
           <div>
             <div className="w-16 h-1 bg-gradient-to-r from-gray-500 to-gray-300 mb-6"></div>
 
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight tracking-tight">
               Leading companies trust us
               <br />
               to{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-300 to-white">
+              <span className="text-gray-100 font-extrabold">
                 develop software
               </span>
             </h2>
 
-            <p className="text-gray-300 text-lg leading-relaxed mb-8">
+            <p className="text-gray-200 text-xl leading-relaxed mb-8 font-light">
               We{" "}
-              <span className="text-white font-semibold">
+              <span className="text-white font-bold">
                 add development capacity
               </span>{" "}
               to tech teams. Our value isn't limited to building teams but is
@@ -29,7 +29,7 @@ const TeamSection = () => {
               delivery of your project.
             </p>
 
-            <button className="group inline-flex items-center text-gray-300 font-semibold hover:text-white transition-colors">
+            <button className="group inline-flex items-center text-gray-100 font-bold hover:text-white transition-colors text-lg">
               See more Informations
               <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
