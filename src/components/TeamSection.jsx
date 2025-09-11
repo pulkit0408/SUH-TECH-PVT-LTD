@@ -2,23 +2,23 @@ import { ChevronRight, Play } from "lucide-react";
 
 const TeamSection = () => {
   return (
-    <section className="py-20 bg-black">
+    <section className="py-20 bg-gradient-to-b from-blue-900/50 to-purple-900/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div>
-            <div className="w-16 h-1 bg-gradient-to-r from-gray-500 to-gray-300 mb-6"></div>
+            <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mb-6"></div>
 
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight tracking-tight">
               Leading companies trust us
               <br />
               to{" "}
-              <span className="text-gray-100 font-extrabold">
+              <span className="text-purple-100 font-extrabold">
                 develop software
               </span>
             </h2>
 
-            <p className="text-gray-200 text-xl leading-relaxed mb-8 font-light">
+            <p className="text-purple-200 text-xl leading-relaxed mb-8 font-light">
               We{" "}
               <span className="text-white font-bold">
                 add development capacity
@@ -29,7 +29,7 @@ const TeamSection = () => {
               delivery of your project.
             </p>
 
-            <button className="group inline-flex items-center text-gray-100 font-bold hover:text-white transition-colors text-lg">
+            <button className="group inline-flex items-center text-purple-100 font-bold hover:text-white transition-colors text-lg">
               See more Informations
               <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
@@ -37,7 +37,7 @@ const TeamSection = () => {
 
           {/* Right Video/Image */}
           <div className="relative">
-            <div className="relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl overflow-hidden shadow-2xl border border-gray-700">
+            <div className="relative bg-gradient-to-br from-purple-800/60 to-blue-800/60 rounded-2xl overflow-hidden shadow-2xl border border-purple-600/30 backdrop-blur-sm">
               <img
                 src="teamWork.mp4"
                 alt="Team working together"
@@ -46,7 +46,7 @@ const TeamSection = () => {
 
               {/* Play Button Overlay */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <button className="w-20 h-20 bg-gray-700 border border-gray-600 rounded-full flex items-center justify-center shadow-2xl hover:bg-gray-600 transition-colors transform hover:scale-110">
+                <button className="w-20 h-20 bg-gradient-to-r from-purple-600 to-blue-600 border border-purple-400/50 rounded-full flex items-center justify-center shadow-2xl hover:from-purple-700 hover:to-blue-700 transition-all transform hover:scale-110">
                   <Play
                     className="w-8 h-8 text-white ml-1"
                     fill="currentColor"
@@ -55,8 +55,8 @@ const TeamSection = () => {
               </div>
 
               {/* Decorative Elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-gray-600 to-gray-700 rounded-full opacity-10 blur-xl"></div>
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-br from-gray-700 to-gray-800 rounded-full opacity-10 blur-xl"></div>
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full opacity-20 blur-xl"></div>
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-full opacity-20 blur-xl"></div>
             </div>
           </div>
         </div>

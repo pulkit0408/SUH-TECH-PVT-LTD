@@ -7,7 +7,7 @@ import TeamSection from './components/TeamSection';
 
 const App = () => {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
       <Navigation />
       <HeroSection />
       <ServicesSection />
