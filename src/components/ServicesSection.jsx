@@ -51,8 +51,7 @@ const ServicesSection = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2
-          className="text-4xl font-extrabold text-center mb-16 tracking-tight"
-          style={{ color: "var(--text-primary)" }}
+          className="heading-lg text-3xl sm:text-4xl lg:text-5xl text-center mb-16 tracking-tight brand-gradient-text"
         >
           Services we offer
         </h2>

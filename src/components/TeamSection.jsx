@@ -29,14 +29,15 @@ const TeamSection = () => {
 
   return (
     <section
-      className="py-20"
+      className="py-20 relative overflow-hidden parallax-bg"
       style={{
         backgroundColor: "var(--bg-primary)",
         backgroundImage:
-          "linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%)",
+          "url(https://images.unsplash.com/photo-1527443224154-c4f2a9d4a80a?w=1920&h=1080&fit=crop)",
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="absolute inset-0 parallax-overlay pointer-events-none"></div>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div>
@@ -46,28 +47,24 @@ const TeamSection = () => {
             ></div>
 
             <h2
-              className="text-4xl lg:text-5xl font-bold mb-6 leading-tight"
-              style={{ color: "var(--text-primary)" }}
+              className="font-inter text-3xl lg:text-5xl font-bold mb-6 leading-tight text-white"
             >
-              Leading companies trust us
+              <span className="text-white">Leading companies trust us</span>
               <br />
-              to{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
-                develop software
-              </span>
+              <span className="brand-gradient-text">to develop software</span>
             </h2>
 
             <p
-              className="text-lg leading-relaxed mb-8"
+              className="font-poppins text-base lg:text-lg leading-relaxed mb-8"
               style={{ color: "var(--text-secondary)" }}
             >
-              We{" "}
+              We
               <span
                 className="font-semibold"
                 style={{ color: "var(--accent-primary)" }}
               >
-                add development capacity
-              </span>{" "}
+                {" "}add development capacity{" "}
+              </span>
               to tech teams. Our value isn't limited to building teams but is
               equally distributed across the project lifecycle. We are a custom
               software development company that guarantees the successful
@@ -78,7 +75,7 @@ const TeamSection = () => {
               className="group inline-flex p-3 rounded-xl items-center font-semibold transition-colors"
             >
               See more Informations
-              <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <ChevronRight className="ml-2 w-5 h-5 brand-gradient-text transition-transform group-hover:translate-x-1" />
             </button>
           </div>
 

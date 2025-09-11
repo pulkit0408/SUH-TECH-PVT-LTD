@@ -36,10 +36,10 @@ const AboutSection = () => {
           <h4 className="text-lg font-semibold text-purple-400 mb-2">
             About Us
           </h4>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-6">
+          <h2 className="heading-lg text-3xl sm:text-4xl lg:text-5xl brand-gradient-text mb-6">
             Designing the future of your business.
           </h2>
-          <p className="text-base sm:text-lg leading-relaxed text-gray-300 mb-8">
+          <p className="subheading text-base sm:text-lg leading-relaxed text-gray-300 mb-8">
             At <span className="font-semibold text-white">SUH TECH PRIVATE LIMITED</span>, we specialize in delivering innovative technology
             solutions that drive business success. From product development and
             digital marketing to game design and startup consultancy, we combine
@@ -49,7 +49,7 @@ const AboutSection = () => {
             We value your time — and your vision. Partner with us to build
             solutions that empower your growth in the digital age.
           </p>
-          <button className="px-6 py-3 rounded-xl text-base font-semibold bg-[var(--accent-gradient)] text-white shadow-md hover:translate-y-[-2px] transition-all duration-300">
+          <button className="btn btn-solid">
             Learn More →
           </button>
         </div>
