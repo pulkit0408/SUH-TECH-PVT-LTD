@@ -36,9 +36,7 @@ const ServicesSection = () => {
   };
 
   const prevService = () => {
-    setCurrentService(
-      (prev) => (prev - 1 + services.length) % services.length
-    );
+    setCurrentService((prev) => (prev - 1 + services.length) % services.length);
   };
 
   useEffect(() => {
@@ -47,9 +45,15 @@ const ServicesSection = () => {
   }, []);
 
   return (
-    <section className="py-20 bg-white">
+    <section
+      className="py-20 relative overflow-hidden"
+      style={{ backgroundColor: "var(--bg-primary)" }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">
+        <h2
+          className="text-4xl font-extrabold text-center mb-16 tracking-tight"
+          style={{ color: "var(--text-primary)" }}
+        >
           Services we offer
         </h2>
 
@@ -57,47 +61,114 @@ const ServicesSection = () => {
           {/* Services Carousel */}
           <div className="flex items-center justify-center">
             <div className="grid lg:grid-cols-3 gap-8 w-full max-w-6xl">
-              {/* Previous Service (Hidden on mobile) */}
-              <div className="hidden lg:block">
-                <div className="bg-gray-50 rounded-2xl p-8 text-center opacity-50 transform scale-90">
-                  <div className="w-16 h-16 bg-gradient-to-r from-gray-300 to-gray-400 rounded-full mx-auto mb-6 flex items-center justify-center text-2xl">
-                    {services[(currentService - 1 + services.length) % services.length].icon}
+              {/* Previous Service */}
+              <div className="hidden lg:block animate-fadeInLeft">
+                <div
+                  className="rounded-2xl p-8 text-center opacity-50 transform scale-90 backdrop-blur-sm"
+                  style={{
+                    backgroundColor: "rgba(30,30,50,0.6)",
+                    border: "1px solid var(--border-color)",
+                  }}
+                >
+                  <div
+                    className="w-16 h-16 rounded-full mx-auto mb-6 flex items-center justify-center text-2xl shadow-md"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, #4a5568 0%, #2d3748 100%)",
+                    }}
+                  >
+                    {
+                      services[
+                        (currentService - 1 + services.length) % services.length
+                      ].icon
+                    }
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-700 mb-4">
-                    {services[(currentService - 1 + services.length) % services.length].title}
+                  <h3
+                    className="text-xl font-semibold mb-3"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    {
+                      services[
+                        (currentService - 1 + services.length) % services.length
+                      ].title
+                    }
                   </h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">
-                    {services[(currentService - 1 + services.length) % services.length].description.substring(0, 100)}...
+                  <p
+                    className="text-sm leading-relaxed"
+                    style={{ color: "var(--text-secondary)", opacity: 0.7 }}
+                  >
+                    {services[
+                      (currentService - 1 + services.length) % services.length
+                    ].description.substring(0, 90)}
+                    ...
                   </p>
                 </div>
               </div>
 
               {/* Current Service */}
-              <div className="lg:col-span-1">
-                <div className="bg-gradient-to-br from-purple-50 to-pink-50 border-2 border-purple-200 rounded-2xl p-8 text-center transform hover:scale-105 transition-all shadow-xl">
-                  <div className="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mx-auto mb-6 flex items-center justify-center text-3xl shadow-lg">
+              <div className="lg:col-span-1 animate-fadeIn">
+                <div
+                  className="rounded-2xl p-10 text-center transition-all shadow-xl hover:shadow-purple-500/30 hover:scale-105"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(139, 92, 246, 0.12) 100%)",
+                    border: "2px solid var(--accent-primary)",
+                    backdropFilter: "blur(14px)",
+                  }}
+                >
+                  <div
+                    className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center text-3xl shadow-lg"
+                    style={{ background: "var(--accent-gradient)" }}
+                  >
                     {services[currentService].icon}
                   </div>
-                  <h3 className="text-2xl font-bold text-purple-700 mb-6">
+                  <h3
+                    className="text-2xl font-bold mb-6"
+                    style={{ color: "var(--accent-primary)" }}
+                  >
                     {services[currentService].title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p
+                    className="leading-relaxed"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
                     {services[currentService].description}
                   </p>
                 </div>
               </div>
 
-              {/* Next Service (Hidden on mobile) */}
-              <div className="hidden lg:block">
-                <div className="bg-gray-50 rounded-2xl p-8 text-center opacity-50 transform scale-90">
-                  <div className="w-16 h-16 bg-gradient-to-r from-gray-300 to-gray-400 rounded-full mx-auto mb-6 flex items-center justify-center text-2xl">
+              {/* Next Service */}
+              <div className="hidden lg:block animate-fadeInRight">
+                <div
+                  className="rounded-2xl p-8 text-center opacity-50 transform scale-90 backdrop-blur-sm"
+                  style={{
+                    backgroundColor: "rgba(30,30,50,0.6)",
+                    border: "1px solid var(--border-color)",
+                  }}
+                >
+                  <div
+                    className="w-16 h-16 rounded-full mx-auto mb-6 flex items-center justify-center text-2xl shadow-md"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, #4a5568 0%, #2d3748 100%)",
+                    }}
+                  >
                     {services[(currentService + 1) % services.length].icon}
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-700 mb-4">
+                  <h3
+                    className="text-xl font-semibold mb-3"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
                     {services[(currentService + 1) % services.length].title}
                   </h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">
-                    {services[(currentService + 1) % services.length].description.substring(0, 100)}...
+                  <p
+                    className="text-sm leading-relaxed"
+                    style={{ color: "var(--text-secondary)", opacity: 0.7 }}
+                  >
+                    {services[
+                      (currentService + 1) % services.length
+                    ].description.substring(0, 90)}
+                    ...
                   </p>
                 </div>
               </div>
@@ -107,15 +178,27 @@ const ServicesSection = () => {
           {/* Navigation Arrows */}
           <button
             onClick={prevService}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white shadow-lg rounded-full flex items-center justify-center hover:bg-purple-50 transition-colors"
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 shadow-lg rounded-full flex items-center justify-center transition-all hover:scale-110 hover:shadow-purple-500/40"
+            style={{
+              backgroundColor: "var(--bg-secondary)",
+              border: "1px solid var(--border-color)",
+            }}
           >
-            <ChevronLeft className="w-6 h-6 text-purple-600" />
+            <ChevronLeft
+              className="w-6 h-6"
+            />
           </button>
           <button
             onClick={nextService}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white shadow-lg rounded-full flex items-center justify-center hover:bg-purple-50 transition-colors"
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 shadow-lg rounded-full flex items-center justify-center transition-all hover:scale-110 hover:shadow-purple-500/40"
+            style={{
+              backgroundColor: "var(--bg-secondary)",
+              border: "1px solid var(--border-color)",
+            }}
           >
-            <ChevronRight className="w-6 h-6 text-purple-600" />
+            <ChevronRight
+              className="w-6 h-6"
+            />
           </button>
 
           {/* Indicators */}
@@ -124,10 +207,10 @@ const ServicesSection = () => {
               <button
                 key={index}
                 onClick={() => setCurrentService(index)}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentService 
-                    ? 'bg-purple-600' 
-                    : 'bg-gray-300 hover:bg-gray-400'
+                className={`w-3 h-3 rounded-full transition-all ${
+                  index === currentService
+                    ? "scale-125 shadow-md"
+                    : "opacity-50"
                 }`}
                 style={{
                   backgroundColor:
@@ -141,8 +224,11 @@ const ServicesSection = () => {
 
           {/* Service Counter */}
           <div className="flex justify-center mt-4">
-            <span className="text-sm text-gray-500">
-              0{currentService + 1} — 0{services.length}
+            <span
+              className="text-sm font-medium tracking-wide"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              0{currentService + 1} / 0{services.length}
             </span>
           </div>
         </div>

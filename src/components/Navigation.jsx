@@ -28,37 +28,56 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="relative bg-white/80 backdrop-blur-md shadow-sm">
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 border-b transition-all duration-300 ${
+        isScrolled
+          ? "backdrop-blur-xl bg-[rgba(15,15,35,0.7)] shadow-md"
+          : "bg-transparent"
+      }`}
+      style={{ borderColor: "var(--border-color)" }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white text-sm font-bold">W</span>
+          <div className="flex items-center space-x-2 cursor-pointer">
+            <div className="flex items-center justify-center shadow-md">
+              <img className="rounded-full w-20" src="logo_Suh.jpg" alt="Logo" />
             </div>
-            <span className="text-xl font-semibold text-gray-800">We developers</span>
+            <span
+              className="text-xl font-bold tracking-wide"
+              style={{ color: "var(--text-primary)" }}
+            >
+              SUH TECH PVT PTD
+            </span>
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#" className="text-gray-700 hover:text-purple-600 transition-colors">About us</a>
-            <a href="#" className="text-gray-700 hover:text-purple-600 transition-colors">Services</a>
-            <a href="#" className="text-gray-700 hover:text-purple-600 transition-colors">Case Studies</a>
-            <a href="#" className="text-gray-700 hover:text-purple-600 transition-colors">Blog</a>
-            <a href="#" className="text-gray-700 hover:text-purple-600 transition-colors">How it Works</a>
-            <a href="#" className="text-gray-700 hover:text-purple-600 transition-colors">Hire</a>
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="relative text-sm font-medium transition-colors duration-300 hover:text-purple-400"
+                style={{ color: "var(--text-secondary)" }}
+              >
+                {link.name}
+              </a>
+            ))}
           </div>
 
           {/* Contact Button */}
           <div className="hidden md:block">
-            <button className="bg-gradient-to-r from-purple-600 to-purple-700 text-white px-6 py-2 rounded-lg hover:from-purple-700 hover:to-purple-800 transition-all transform hover:scale-105">
+            <button
+              className="text-white px-6 py-2 rounded-xl shadow-md transition-all transform hover:scale-105 hover:shadow-lg"
+              style={{ background: "var(--accent-gradient)" }}
+            >
               Contact us
             </button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button 
-            className="md:hidden"
+          <button
+            className="md:hidden focus:outline-none"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             style={{ color: "var(--text-primary)" }}
           >
@@ -72,15 +91,29 @@ const Navigation = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-t">
-            <div className="px-4 py-2 space-y-2">
-              <a href="#" className="block py-2 text-gray-700 hover:text-purple-600">About us</a>
-              <a href="#" className="block py-2 text-gray-700 hover:text-purple-600">Services</a>
-              <a href="#" className="block py-2 text-gray-700 hover:text-purple-600">Case Studies</a>
-              <a href="#" className="block py-2 text-gray-700 hover:text-purple-600">Blog</a>
-              <a href="#" className="block py-2 text-gray-700 hover:text-purple-600">How it Works</a>
-              <a href="#" className="block py-2 text-gray-700 hover:text-purple-600">Hire</a>
-              <button className="w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white px-6 py-2 rounded-lg mt-2">
+          <div
+            className="md:hidden absolute top-full left-0 right-0 shadow-xl border-t animate-slideDown"
+            style={{
+              backgroundColor: "var(--bg-secondary)",
+              borderColor: "var(--border-color)",
+            }}
+          >
+            <div className="px-4 py-3 space-y-3">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="block py-2 text-base transition-colors hover:text-purple-400"
+                  style={{ color: "var(--text-secondary)" }}
+                >
+                  {link.name}
+                </a>
+              ))}
+              <button
+                className="w-full text-white px-6 py-2 rounded-xl shadow-md transition-all hover:scale-105"
+                style={{ background: "var(--accent-gradient)" }}
+              >
                 Contact us
               </button>
             </div>

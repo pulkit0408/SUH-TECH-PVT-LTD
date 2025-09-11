@@ -147,7 +147,8 @@ const ContactUs = () => {
           }
         }
         @keyframes pulseSlow {
-          0%, 100% {
+          0%,
+          100% {
             transform: scale(1);
             opacity: 0.25;
           }
