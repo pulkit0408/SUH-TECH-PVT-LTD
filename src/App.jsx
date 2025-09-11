@@ -10,7 +10,7 @@ import Footer from "./components/Footer";
 
 const App = () => {
   return (
-    <div className="min-h-screen bg-[var(--bg-primary)]">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50">
       <Navigation />
       <section id="home">
         <HeroSection />
