@@ -2,25 +2,25 @@ import { ChevronRight, Play } from "lucide-react";
 
 const TeamSection = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-purple-50 to-blue-50">
+    <section className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div>
-            <div className="w-16 h-1 bg-gradient-to-r from-purple-600 to-pink-600 mb-6"></div>
+            <div className="w-16 h-1 bg-gradient-to-r from-gray-500 to-gray-300 mb-6"></div>
 
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
               Leading companies trust us
               <br />
               to{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-300 to-white">
                 develop software
               </span>
             </h2>
 
-            <p className="text-gray-600 text-lg leading-relaxed mb-8">
+            <p className="text-gray-300 text-lg leading-relaxed mb-8">
               We{" "}
-              <span className="text-purple-600 font-semibold">
+              <span className="text-white font-semibold">
                 add development capacity
               </span>{" "}
               to tech teams. Our value isn't limited to building teams but is
@@ -29,7 +29,7 @@ const TeamSection = () => {
               delivery of your project.
             </p>
 
-            <button className="group inline-flex items-center text-purple-600 font-semibold hover:text-purple-700 transition-colors">
+            <button className="group inline-flex items-center text-gray-300 font-semibold hover:text-white transition-colors">
               See more Informations
               <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
@@ -37,7 +37,7 @@ const TeamSection = () => {
 
           {/* Right Video/Image */}
           <div className="relative">
-            <div className="relative bg-gradient-to-br from-white to-purple-50 rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl overflow-hidden shadow-2xl border border-gray-700">
               <img
                 src="teamWork.mp4"
                 alt="Team working together"
@@ -46,7 +46,7 @@ const TeamSection = () => {
 
               {/* Play Button Overlay */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <button className="w-20 h-20 bg-purple-600 rounded-full flex items-center justify-center shadow-2xl hover:bg-purple-700 transition-colors transform hover:scale-110">
+                <button className="w-20 h-20 bg-gray-700 border border-gray-600 rounded-full flex items-center justify-center shadow-2xl hover:bg-gray-600 transition-colors transform hover:scale-110">
                   <Play
                     className="w-8 h-8 text-white ml-1"
                     fill="currentColor"
@@ -55,8 +55,8 @@ const TeamSection = () => {
               </div>
 
               {/* Decorative Elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full opacity-20 blur-xl"></div>
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full opacity-20 blur-xl"></div>
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-gray-600 to-gray-700 rounded-full opacity-10 blur-xl"></div>
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-br from-gray-700 to-gray-800 rounded-full opacity-10 blur-xl"></div>
             </div>
           </div>
         </div>
