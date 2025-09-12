@@ -93,8 +93,8 @@ const ContactUs = () => {
             {
               Icon: Phone,
               title: "Call Us",
-              text: "+91 9211056355",
-              link: "tel:+919211056355",
+              text: "+91 8298252909",
+              link: "tel:+918298252909",
             },
             {
               Icon: Linkedin,

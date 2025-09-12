@@ -23,6 +23,7 @@ const Navigation = () => {
     { name: "About", href: "#about" },
     { name: "Services", href: "#services" },
     { name: "Contact", href: "#contact" },
+    { name: "Careers", href: "/careers" },
   ];
 
   return (
@@ -64,10 +65,10 @@ const Navigation = () => {
           </div>
 
           {/* Contact Button */}
-          <div className="hidden md:block">
+          <div className=" hover:scale-105 hover:shadow-lg hidden md:block">
             <a
               href="#contact"
-              className="text-white px-6 py-2 rounded-xl shadow-md transition-all transform hover:scale-105 hover:shadow-lg"
+              className="text-white px-6 py-2 rounded-xl shadow-md transition-all transform "
               style={{ background: "var(--accent-gradient)" }}
             >
               Contact us
