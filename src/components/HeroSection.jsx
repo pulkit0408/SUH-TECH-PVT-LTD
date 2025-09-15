@@ -26,7 +26,7 @@ const HeroSection = () => {
       },
       {
         key: "cloud",
-        image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1920&h=1080&fit=crop",
+        image: "https://www.agilerecruit.com/wp-content/uploads/2020/11/iStock-1145589623_small-1024x640.jpg",
         heading: "Cloud Solutions",
         sub: "Scalable infrastructure and DevOps solutions for modern businesses.",
         color: "from-orange-500 via-amber-500 to-yellow-500"

@@ -593,7 +593,7 @@ ${formData.fullName}
                 </div>
                 <button
                   onClick={closeForm}
-                  className="text-gray-400 hover:text-pink-400 text-3xl font-bold hover:rotate-90 transform transition-all duration-300"
+                  className="text-gray-400 hover:text-pink-400 rounded-full text-3xl font-bold hover:rotate-180 transform transition-all duration-300"
                 >
                   ×
                 </button>
