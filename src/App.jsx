@@ -8,6 +8,7 @@ import HeroSection from "./components/HeroSection";
 import InhouseProducts from "./components/InhouseProducts";
 import LeadersPage from "./components/LeadersPage";
 import Navigation from "./components/Navigation";
+import PortfolioSection from "./components/Portfolio";
 import RotatingBannerSection from "./components/RotatingBannerSection";
 import ServicesSection from "./components/ServicesSection";
 import TeamSection from "./components/TeamSection";
@@ -41,6 +42,9 @@ const HomePage = () => (
 // Careers Page Layout Component
 const CareersPageLayout = () => <CareersPage />;
 
+// Portfolio Page Layout Component
+const PortfolioPageLayout = () => <PortfolioSection />;
+
 const App = () => {
   return (
     <Router>
@@ -50,6 +54,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/careers" element={<CareersPageLayout />} />
+          <Route path="/portfolio" element={<PortfolioPageLayout />} />
         </Routes>
 
         <Footer />
