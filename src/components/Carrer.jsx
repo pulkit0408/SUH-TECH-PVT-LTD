@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useNavigation } from "react-router-dom";
 
 const CareersPage = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedJob, setSelectedJob] = useState(null);
   const [showForm, setShowForm] = useState(false);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -21,14 +19,6 @@ const CareersPage = () => {
 
   useEffect(() => {
     setIsVisible(true);
-
-    // Mouse tracking for interactive elements
-    const handleMouseMove = (e) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   const jobPostings = [
@@ -145,8 +135,7 @@ const CareersPage = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     if (
       !formData.fullName ||
       !formData.email ||
@@ -195,120 +184,53 @@ ${formData.fullName}
     }
   };
 
-  // Floating particles component
-  const FloatingParticles = () => (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {[...Array(20)].map((_, i) => (
-        <div
-          key={i}
-          className="absolute w-2 h-2 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full opacity-20 animate-pulse"
-          style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            animationDelay: `${Math.random() * 3}s`,
-            animationDuration: `${3 + Math.random() * 4}s`,
-          }}
-        />
-      ))}
-    </div>
-  );
-
   return (
     <section
       id="#careers"
-      className="relative py-20 overflow-hidden"
-      style={{
-        backgroundColor: "var(--bg-primary)",
-        background:
-          "linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 25%, #16213e 50%, #0a0a0a 75%, #1a0a2e 100%)",
-      }}
+      className="relative py-20 bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900"
     >
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-10 left-10 w-72 h-72 bg-gradient-to-r from-purple-600/10 to-pink-600/10 rounded-full blur-3xl animate-pulse"></div>
-        <div
-          className="absolute top-1/2 right-20 w-96 h-96 bg-gradient-to-r from-blue-600/10 to-cyan-600/10 rounded-full blur-3xl animate-pulse"
-          style={{ animationDelay: "1s" }}
-        ></div>
-        <div
-          className="absolute bottom-20 left-1/3 w-80 h-80 bg-gradient-to-r from-pink-600/10 to-purple-600/10 rounded-full blur-3xl animate-pulse"
-          style={{ animationDelay: "2s" }}
-        ></div>
+      {/* Subtle Background Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-20 left-20 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-40 right-20 w-96 h-96 bg-blue-500/15 rounded-full blur-3xl"></div>
       </div>
 
-      {/* Floating Particles */}
-      <FloatingParticles />
-
-      {/* Interactive cursor glow */}
-      <div
-        className="fixed w-96 h-96 bg-gradient-to-r from-pink-500/5 to-purple-500/5 rounded-full blur-3xl pointer-events-none z-0 transition-all duration-300"
-        style={{
-          left: mousePos.x - 192,
-          top: mousePos.y - 192,
-        }}
-      />
-
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        {/* Enhanced Hero Section */}
+        {/* Clean Hero Section */}
         <div
-          className={`text-center mb-16 transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          className={`text-center mb-20 transition-all duration-700 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          <div className="relative inline-block mb-6">
-            <h1 className="heading-lg text-4xl md:text-5xl lg:text-6xl text-white leading-tight">
-              Join Our{" "}
-              <span className="relative">
-                <span className="brand-gradient-text animate-pulse">
-                  Innovation
-                </span>
-                <div className="absolute -inset-2 bg-gradient-to-r from-pink-600/20 to-purple-600/20 blur-xl rounded-lg"></div>
-              </span>{" "}
-              Journey
-            </h1>
-          </div>
+          <h2 className="heading-lg text-3xl md:text-4xl lg:text-5xl brand-gradient-text mb-4 relative">
+              Join Our Innovation Journey
+              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full"></div>
+            </h2>
 
-          <p className="subheading text-gray-300 text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed backdrop-blur-sm bg-white/5 rounded-2xl p-6 border border-white/10">
-            Shape the future of digital transformation with cutting-edge
-            technologies
+          <p className="text-gray-300 text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
+            Shape the future of digital transformation with cutting-edge technologies
             <br className="hidden sm:block" />
             and make an impact across industries worldwide.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
+          <div className="flex flex-wrap justify-center gap-6 mb-16">
             {[
-              {
-                text: "500+ Projects",
-                gradient: "from-pink-500 to-purple-500",
-                icon: "🚀",
-              },
-              {
-                text: "50+ Team Members",
-                gradient: "from-blue-500 to-cyan-500",
-                icon: "👥",
-              },
-              {
-                text: "5+ Years Experience",
-                gradient: "from-purple-500 to-pink-500",
-                icon: "⭐",
-              },
+              { text: "500+ Projects", icon: "🚀" },
+              { text: "50+ Team Members", icon: "👥" },
+              { text: "5+ Years Experience", icon: "⭐" },
             ].map((badge, index) => (
-              <div key={index} className="group relative">
-                <div
-                  className={`absolute -inset-1 bg-gradient-to-r ${badge.gradient} rounded-full blur opacity-50 group-hover:opacity-75 transition duration-300`}
-                ></div>
-                <span
-                  className={`relative bg-gradient-to-r ${badge.gradient} text-white px-6 py-3 rounded-full font-semibold backdrop-blur-sm border border-white/20 hover:scale-105 transition-transform duration-300 flex items-center gap-2`}
-                >
-                  <span>{badge.icon}</span>
-                  {badge.text}
-                </span>
+              <div
+                key={index}
+                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-6 py-3 flex items-center gap-3 hover:bg-white/10 transition-colors duration-300"
+              >
+                <span className="text-2xl">{badge.icon}</span>
+                <span className="text-white font-semibold">{badge.text}</span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Enhanced Why Choose SUH TECH */}
+        {/* Why Choose SUH TECH */}
         <div className="mb-20">
           <div className="text-center mb-12">
             <h2 className="heading-lg text-3xl md:text-4xl lg:text-5xl brand-gradient-text mb-4 relative">
@@ -382,54 +304,47 @@ ${formData.fullName}
           </div>
         </div>
 
-        {/* Enhanced Current Opportunities */}
+        {/* Current Opportunities */}
         <div className="mb-20">
           <div className="text-center mb-12">
             <h2 className="heading-lg text-3xl md:text-4xl lg:text-5xl brand-gradient-text mb-4 relative">
               Current Opportunities
-              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full"></div>
             </h2>
+            <div className="w-32 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full"></div>
             <p className="text-gray-400 text-lg mt-4">
               Discover your next career milestone with us
             </p>
           </div>
 
-          <div className="space-y-6 max-w-4xl mx-auto">
+          <div className="space-y-6 max-w-5xl mx-auto">
             {jobPostings.map((job, index) => (
               <div
                 key={job.id}
-                className={`rounded-2xl overflow-hidden border border-white/10 bg-black/30 backdrop-blur-xl group p-6 hover:bg-white/10 hover:scale-[1.02] transition-all duration-500 hover:shadow-2xl hover:shadow-pink-500/20 ${
-                  index % 2 === 0 ? "hover:rotate-1" : "hover:-rotate-1"
-                }`}
-                style={{
-                  animationDelay: `${index * 0.1}s`,
-                }}
+                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/8 hover:border-white/20 transition-all duration-300"
               >
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-pink-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
                 <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-4">
                   <div className="flex-1 mb-4 lg:mb-0">
                     <div className="flex items-center gap-3 mb-3">
-                      <h3 className="font-inter text-xl font-bold text-white group-hover:text-pink-300 transition-colors duration-300">
+                      <h3 className="text-xl font-semibold text-white">
                         {job.title}
                       </h3>
-                      <div className="w-3 h-3 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full animate-pulse"></div>
+                      <span className="w-2 h-2 bg-green-500 rounded-full"></span>
                     </div>
 
                     <div className="flex flex-wrap gap-4 text-sm text-gray-300 mb-3">
-                      <span className="flex items-center gap-1 hover:text-pink-300 transition-colors">
+                      <span className="flex items-center gap-1">
                         📍 {job.location}
                       </span>
-                      <span className="flex items-center gap-1 hover:text-blue-300 transition-colors">
+                      <span className="flex items-center gap-1">
                         🏢 {job.department}
                       </span>
-                      <span className="flex items-center gap-1 hover:text-green-300 transition-colors">
+                      <span className="flex items-center gap-1">
                         ⏰ {job.type}
                       </span>
-                      <span className="flex items-center gap-1 hover:text-purple-300 transition-colors">
+                      <span className="flex items-center gap-1">
                         🎯 {job.experience}
                       </span>
-                      <span className="flex items-center gap-1 text-green-400 font-semibold hover:text-green-300 transition-colors">
+                      <span className="flex items-center gap-1 text-green-400 font-semibold">
                         💰 {job.salary}
                       </span>
                     </div>
@@ -438,10 +353,7 @@ ${formData.fullName}
                       {job.skills.map((skill, skillIndex) => (
                         <span
                           key={skillIndex}
-                          className="bg-gradient-to-r from-purple-500/30 to-pink-500/30 px-3 py-1 rounded-full text-xs text-white border border-white/20 hover:from-purple-500/50 hover:to-pink-500/50 hover:scale-105 transition-all duration-300"
-                          style={{
-                            animationDelay: `${skillIndex * 0.1}s`,
-                          }}
+                          className="bg-purple-500/20 border border-purple-400/30 px-3 py-1 rounded-full text-xs text-purple-200"
                         >
                           {skill}
                         </span>
@@ -451,37 +363,32 @@ ${formData.fullName}
 
                   <button
                     onClick={() => handleApplyClick(job)}
-                    className="btn btn-solid px-6 py-3 text-white font-semibold relative overflow-hidden group/btn hover:scale-110 transition-all duration-300"
+                    className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 px-6 py-3 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg"
                   >
-                    <span className="relative z-10">Apply Now</span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
+                    Apply Now
                   </button>
                 </div>
 
-                <p className="font-poppins text-gray-300 mb-4 group-hover:text-gray-200 transition-colors duration-300">
+                <p className="text-gray-300 mb-4 leading-relaxed">
                   {job.description}
                 </p>
 
-                <div className="flex justify-between items-center text-sm text-gray-400">
-                  <span className="hover:text-pink-300 transition-colors">
-                    Posted: {formatDate(job.datePosted)}
-                  </span>
-                  <span className="hover:text-purple-300 transition-colors">
-                    Apply by: {formatDate(job.validThrough)}
-                  </span>
+                <div className="flex justify-between items-center text-sm text-gray-400 pt-4 border-t border-white/10">
+                  <span>Posted: {formatDate(job.datePosted)}</span>
+                  <span>Apply by: {formatDate(job.validThrough)}</span>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Enhanced Hiring Process */}
+        {/* Hiring Process */}
         <div className="mb-20">
           <div className="text-center mb-12">
-            <h2 className="heading-lg text-3xl md:text-4xl lg:text-5xl brand-gradient-text mb-4 relative">
+            <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
               Our Hiring Process
-              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-28 h-1 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full"></div>
             </h2>
+            <div className="w-28 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full"></div>
             <p className="text-gray-400 text-lg mt-4">
               Your journey to joining our team
             </p>
@@ -492,7 +399,7 @@ ${formData.fullName}
               {
                 step: "1",
                 title: "Apply Online",
-                desc: "Submit your application through our comprehensive form",
+                desc: "Submit your application through our comprehensive application process",
                 icon: "📝",
               },
               {
@@ -515,76 +422,68 @@ ${formData.fullName}
               },
             ].map((item, index) => (
               <div key={index} className="text-center group relative">
-                <div className="relative mb-4 mx-auto w-16 h-16 flex items-center justify-center">
-                  <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full group-hover:scale-125 transition-all duration-500 animate-pulse"></div>
-                  <div className="absolute inset-1 bg-black rounded-full group-hover:inset-0 transition-all duration-500"></div>
-                  <span className="relative z-10 text-white text-xl font-bold group-hover:scale-110 transition-transform duration-300">
+                <div className="relative mb-6 mx-auto w-16 h-16 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
+                  <div className="absolute inset-1 bg-slate-900 rounded-full"></div>
+                  <span className="relative z-10 text-white text-xl font-bold">
                     {item.step}
                   </span>
                 </div>
 
-                <div className="text-2xl mb-3 group-hover:scale-110 group-hover:bounce transition-all duration-300">
-                  {item.icon}
-                </div>
+                <div className="text-3xl mb-4">{item.icon}</div>
 
-                <h3 className="font-inter text-lg font-bold mb-2 text-white group-hover:text-pink-300 transition-colors duration-300">
+                <h3 className="text-lg font-semibold mb-3 text-white">
                   {item.title}
                 </h3>
 
-                <p className="font-poppins text-sm text-gray-300 group-hover:text-gray-200 transition-colors duration-300">
+                <p className="text-sm text-gray-300 leading-relaxed">
                   {item.desc}
                 </p>
 
                 {/* Connection line */}
                 {index < 3 && (
-                  <div className="hidden md:block absolute top-8 left-full w-8 h-0.5 bg-gradient-to-r from-pink-500 to-purple-500 opacity-50"></div>
+                  <div className="hidden md:block absolute top-8 left-full w-8 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 opacity-50"></div>
                 )}
               </div>
             ))}
           </div>
         </div>
 
-        {/* Enhanced Contact Section */}
-        <div className="text-center relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-pink-500/5 to-purple-500/5 rounded-3xl blur-3xl"></div>
-          <div className="relative z-10 p-8">
-            <h2 className="heading-lg text-3xl md:text-4xl font-bold mb-6 text-white">
-              Ready to Join Our Team?
-            </h2>
-            <p className="subheading text-lg mb-6 text-gray-300">
-              Contact us at{" "}
-              <a
-                href="mailto:careers@suhtech.top"
-                className="text-pink-400 underline hover:text-pink-300 transition-colors duration-300 hover:scale-105 inline-block"
-              >
-                careers@suhtech.top
-              </a>
-            </p>
-            <p className="subheading text-lg text-gray-300">
-              Or call us at{" "}
-              <a
-                href="tel:+919693329842"
-                className="font-semibold text-blue-400 hover:text-blue-300 transition-colors duration-300 hover:scale-105 inline-block"
-              >
-                +91-8298252909
-              </a>
-            </p>
-          </div>
+        {/* Contact Section */}
+        <div className="text-center bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
+            Ready to Join Our Team?
+          </h2>
+          <p className="text-lg mb-4 text-gray-300">
+            Contact us at{" "}
+            <a
+              href="mailto:careers@suhtech.top"
+              className="text-purple-400 underline hover:text-purple-300 transition-colors duration-300"
+            >
+              careers@suhtech.top
+            </a>
+          </p>
+          <p className="text-lg text-gray-300">
+            Or call us at{" "}
+            <a
+              href="tel:+919693329842"
+              className="font-semibold text-blue-400 hover:text-blue-300 transition-colors duration-300"
+            >
+              +91-8298252909
+            </a>
+          </p>
         </div>
       </div>
 
-      {/* Enhanced Application Form Modal */}
+      {/* Application Modal */}
       {showForm && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md">
-          <div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto border border-white/10 animate-fadeIn">
-            {/* Gradient glow border */}
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-pink-500/20 to-purple-500/20 blur-xl"></div>
-
-            <div className="relative z-10 p-8">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+          <div className="relative bg-slate-900 border border-white/20 text-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+            <div className="p-8">
               {/* Header */}
               <div className="flex justify-between items-center mb-6">
                 <div>
-                  <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
+                  <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                     Apply for {selectedJob?.title}
                   </h3>
                   <p className="text-gray-400 text-sm">
@@ -593,123 +492,145 @@ ${formData.fullName}
                 </div>
                 <button
                   onClick={closeForm}
-                  className="text-gray-400 hover:text-pink-400 rounded-full text-3xl font-bold hover:rotate-180 transform transition-all duration-300"
+                  className="text-gray-400 hover:text-white text-2xl font-bold transition-colors duration-300"
                 >
                   ×
                 </button>
               </div>
 
-              {/* Form */}
-              <form onSubmit={handleSubmit} className="space-y-5">
-                {/* Full Name */}
+              {/* Application Details */}
+              <div className="space-y-5">
                 <div>
-                  <label className="block text-sm mb-1 text-gray-300">
+                  <label className="block text-sm mb-2 text-gray-300">
                     Full Name *
                   </label>
                   <input
                     type="text"
                     name="fullName"
-                    required
                     value={formData.fullName}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-xl bg-black/40 border border-gray-600 focus:ring-2 focus:ring-pink-500 focus:outline-none transition-all placeholder-gray-500"
+                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:border-purple-500 focus:outline-none transition-all placeholder-gray-500"
                     placeholder="John Doe"
                   />
                 </div>
 
-                {/* Email */}
                 <div>
-                  <label className="block text-sm mb-1 text-gray-300">
+                  <label className="block text-sm mb-2 text-gray-300">
                     Email *
                   </label>
                   <input
                     type="email"
                     name="email"
-                    required
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-xl bg-black/40 border border-gray-600 focus:ring-2 focus:ring-purple-500 focus:outline-none transition-all placeholder-gray-500"
+                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:border-purple-500 focus:outline-none transition-all placeholder-gray-500"
                     placeholder="you@example.com"
                   />
                 </div>
 
-                {/* Phone */}
                 <div>
-                  <label className="block text-sm mb-1 text-gray-300">
+                  <label className="block text-sm mb-2 text-gray-300">
                     Phone *
                   </label>
                   <input
                     type="tel"
                     name="phone"
-                    required
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-xl bg-black/40 border border-gray-600 focus:ring-2 focus:ring-pink-500 focus:outline-none transition-all placeholder-gray-500"
+                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:border-purple-500 focus:outline-none transition-all placeholder-gray-500"
                     placeholder="+91 98765 43210"
                   />
                 </div>
 
-                {/* Resume Upload */}
                 <div>
-                  <label className="block text-sm mb-1 text-gray-300">
-                    Resume *
+                  <label className="block text-sm mb-2 text-gray-300">
+                    Years of Experience *
                   </label>
                   <input
-                    type="file"
-                    name="resume"
-                    accept=".pdf,.doc,.docx"
-                    required
+                    type="text"
+                    name="experience"
+                    value={formData.experience}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-2 rounded-xl bg-black/40 border border-gray-600 focus:ring-2 focus:ring-purple-500 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:bg-gradient-to-r file:from-pink-600 file:to-purple-600 file:text-white file:cursor-pointer hover:file:opacity-90"
+                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:border-purple-500 focus:outline-none transition-all placeholder-gray-500"
+                    placeholder="3 years"
                   />
                 </div>
 
-                {/* Cover Letter */}
                 <div>
-                  <label className="block text-sm mb-1 text-gray-300">
-                    Cover Letter
+                  <label className="block text-sm mb-2 text-gray-300">
+                    Current Role
+                  </label>
+                  <input
+                    type="text"
+                    name="currentRole"
+                    value={formData.currentRole}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:border-purple-500 focus:outline-none transition-all placeholder-gray-500"
+                    placeholder="Senior Developer"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm mb-2 text-gray-300">
+                    Portfolio/LinkedIn
+                  </label>
+                  <input
+                    type="url"
+                    name="portfolio"
+                    value={formData.portfolio}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:border-purple-500 focus:outline-none transition-all placeholder-gray-500"
+                    placeholder="https://linkedin.com/in/yourname"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm mb-2 text-gray-300">
+                    Expected Salary
+                  </label>
+                  <input
+                    type="text"
+                    name="expectedSalary"
+                    value={formData.expectedSalary}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:border-purple-500 focus:outline-none transition-all placeholder-gray-500"
+                    placeholder="10-15 LPA"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm mb-2 text-gray-300">
+                    Cover Letter *
                   </label>
                   <textarea
                     name="coverLetter"
                     rows="4"
                     value={formData.coverLetter}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-xl bg-black/40 border border-gray-600 focus:ring-2 focus:ring-pink-500 focus:outline-none transition-all placeholder-gray-500"
-                    placeholder="Write a short note..."
+                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:border-purple-500 focus:outline-none transition-all placeholder-gray-500"
+                    placeholder="Tell us why you're interested in this position..."
                   />
                 </div>
 
-                {/* Buttons */}
                 <div className="flex gap-4 pt-4">
                   <button
-                    type="submit"
-                    className="flex-1 bg-gradient-to-r from-pink-600 to-purple-600 py-3 px-6 rounded-xl font-semibold hover:scale-105 transition-all duration-300 shadow-lg"
+                    onClick={handleSubmit}
+                    className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 py-3 px-6 rounded-lg font-semibold transition-all duration-300"
                   >
-                    Submit Application
+                    Send Application
                   </button>
                   <button
-                    type="button"
                     onClick={closeForm}
-                    className="px-6 py-3 border border-gray-600 rounded-xl text-gray-300 hover:bg-gray-800 transition-all duration-300"
+                    className="px-6 py-3 border border-white/20 rounded-lg text-gray-300 hover:bg-white/10 transition-all duration-300"
                   >
                     Cancel
                   </button>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>
       )}
-
-      {/* Scroll to top floating button */}
-      <button
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-full shadow-lg hover:shadow-2xl hover:scale-110 transition-all duration-300 z-40 flex items-center justify-center group"
-      >
-        <span className="group-hover:-translate-y-1 transition-transform duration-300">
-          ↑
-        </span>
-      </button>
     </section>
   );
 };
