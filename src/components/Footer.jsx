@@ -120,51 +120,87 @@ const Footer = () => {
         </div>
 
         {/* Social & Address */}
-        <div>
-          <h3 className="text-white font-semibold mb-4">Social Profiles</h3>
-          <div className="flex gap-3 mb-4">
+        <div className="space-y-6">
+          {/* Section Title */}
+          <h3 className="text-xl font-semibold text-white tracking-wide mb-2">
+            Social Profiles
+          </h3>
+
+          {/* Social Links */}
+          <div className="flex gap-4">
             <a
               href="#"
-              className="p-2 rounded-lg border border-[var(--border-color)] hover:bg-[#1877F2] hover:text-white hover:rotate-3 hover:scale-110 transition-all duration-300 ease-in-out transform hover:shadow-lg hover:shadow-blue-500/25"
+              className="p-3 rounded-full border border-[var(--border-color)] 
+                 text-gray-300 hover:text-white 
+                 transition-all duration-300 ease-in-out transform
+                 hover:scale-110 hover:-rotate-3
+                 hover:border-[#1877F2] hover:shadow-lg hover:shadow-blue-500/40"
             >
-              <Facebook className="w-4 h-4" />
+              <Facebook className="w-5 h-5" />
             </a>
+
             <a
               href="https://www.instagram.com/suhtechpvtltd?igsh=M3cwM2Vkb2Y4eDI5"
-              className="p-2 rounded-lg border border-[var(--border-color)] hover:bg-gradient-to-r hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F77737] hover:text-white hover:rotate-3 hover:scale-110 transition-all duration-300 ease-in-out transform hover:shadow-lg hover:shadow-pink-500/25"
+              className="p-3 rounded-full border border-[var(--border-color)] 
+                 text-gray-300 hover:text-white 
+                 transition-all duration-300 ease-in-out transform
+                 hover:scale-110 hover:-rotate-3
+                 hover:border-pink-500 hover:shadow-lg hover:shadow-pink-500/40"
             >
-              <Instagram className="w-4 h-4" />
+              <Instagram className="w-5 h-5" />
             </a>
+
             <a
               href="#"
-              className="p-2 rounded-lg border border-[var(--border-color)] hover:bg-[#0077B5] hover:text-white hover:rotate-3 hover:scale-110 transition-all duration-300 ease-in-out transform hover:shadow-lg hover:shadow-blue-600/25"
+              className="p-3 rounded-full border border-[var(--border-color)] 
+                 text-gray-300 hover:text-white 
+                 transition-all duration-300 ease-in-out transform
+                 hover:scale-110 hover:-rotate-3
+                 hover:border-[#0077B5] hover:shadow-lg hover:shadow-blue-600/40"
             >
-              <Linkedin className="w-4 h-4" />
+              <Linkedin className="w-5 h-5" />
             </a>
+
             <a
               href="https://x.com/suhtechpvt?t=ts0tMtGlnbzZT4MEBSohsQ&s=08"
-              className="p-2 rounded-lg border border-[var(--border-color)] hover:bg-[#1DA1F2] hover:text-white hover:rotate-3 hover:scale-110 transition-all duration-300 ease-in-out transform hover:shadow-lg hover:shadow-sky-500/25"
+              className="p-3 rounded-full border border-[var(--border-color)] 
+                 text-gray-300 hover:text-white 
+                 transition-all duration-300 ease-in-out transform
+                 hover:scale-110 hover:-rotate-3
+                 hover:border-[#1DA1F2] hover:shadow-lg hover:shadow-sky-500/40"
             >
-              <Twitter className="w-4 h-4" />
+              <Twitter className="w-5 h-5" />
             </a>
           </div>
-          <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-            <span className="text-white font-medium">Address:</span>
-            <br />
-            Habitech Crystal Mall,
-            <br />
-            Knowledge Park III,
-            <br />
-            4th Floor, D-8, Greater Noida,
-            <br />
-            India
-          </p>
+
+          {/* Address Block */}
+          <div className="p-5 rounded-xl bg-gradient-to-br from-white/5 to-white/10 border border-white/10 shadow-md">
+            <p className="text-sm text-gray-400 leading-relaxed">
+              <span className="text-white font-semibold text-base">
+                Address:
+              </span>
+              <br />
+              Habitech Crystal Mall,
+              <br />
+              Knowledge Park III,
+              <br />
+              4th Floor, D-8, Greater Noida,
+              <br />
+              India
+            </p>
+          </div>
         </div>
       </div>
 
       {/* Bottom Bar */}
-      <div className="relative border-t border-[var(--border-color)] text-center py-4 text-xs text-[var(--text-secondary)]">
+      <div className="relative mb-5 flex justify-evenly border-t border-[var(--border-color)] text-center py-4 text-xs text-[var(--text-secondary)]">
         © 2025 SUH TECH PRIVATE LIMITED. All rights reserved.
+        <div className="">
+          <ul className="space-x-6">
+            <a href="/privacy-policy">Privacy Policy</a>
+            <a href="/terms-and-conditions">Terms and condition</a>
+          </ul>
+        </div>
       </div>
     </footer>
   );

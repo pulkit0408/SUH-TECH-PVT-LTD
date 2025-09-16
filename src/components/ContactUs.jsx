@@ -27,18 +27,28 @@ const ContactUs = () => {
         </div>
 
         {/* Contact Layout */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Side - Illustration */}
           <div className="flex justify-center">
             <img
-              src="contactUs.png"
-              alt="Contact illustration"
-              className="w-[480px] h-[420px] max-w-md object-contain drop-shadow-xl animate-fadeInLeft"
+              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80"
+              alt="Customer support illustration"
+              className="w-[460px] h-[400px] max-w-full object-cover rounded-2xl 
+               drop-shadow-lg transition-all duration-500 ease-in-out 
+               hover:scale-105 hover:drop-shadow-2xl"
             />
           </div>
 
           {/* Right Side - Form */}
           <div className="bg-white/5 border border-white/10 p-10 rounded-2xl shadow-2xl backdrop-blur-md animate-fadeInRight">
+            <h2 className="text-3xl font-bold text-white mb-6 tracking-tight">
+              Let’s Connect 
+            </h2>
+            <p className="text-gray-400 mb-8">
+              Have questions or ideas? Fill the form below and our team will get
+              back to you.
+            </p>
+
             <form className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">
@@ -47,9 +57,27 @@ const ContactUs = () => {
                 <input
                   type="text"
                   placeholder="Enter your name"
-                  className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:ring-2 focus:ring-purple-400 focus:border-purple-400 outline-none transition"
+                  className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 
+                     text-white placeholder-gray-400 focus:ring-2 
+                     focus:ring-purple-400 focus:border-purple-400 
+                     outline-none transition"
                 />
               </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">
+                  Your Mobile Number
+                </label>
+                <input
+                  type="number"
+                  placeholder="Enter your phone"
+                  className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 
+                     text-white placeholder-gray-400 focus:ring-2 
+                     focus:ring-purple-400 focus:border-purple-400 
+                     outline-none transition"
+                />
+              </div>
+
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">
                   Your Email
@@ -57,9 +85,13 @@ const ContactUs = () => {
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:ring-2 focus:ring-purple-400 focus:border-purple-400 outline-none transition"
+                  className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 
+                     text-white placeholder-gray-400 focus:ring-2 
+                     focus:ring-purple-400 focus:border-purple-400 
+                     outline-none transition"
                 />
               </div>
+
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">
                   Message
@@ -67,13 +99,19 @@ const ContactUs = () => {
                 <textarea
                   rows="4"
                   placeholder="Write your message..."
-                  className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:ring-2 focus:ring-purple-400 focus:border-purple-400 outline-none transition"
+                  className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 
+                     text-white placeholder-gray-400 focus:ring-2 
+                     focus:ring-purple-400 focus:border-purple-400 
+                     outline-none transition"
                 ></textarea>
               </div>
+
               <button
                 type="submit"
-                className="w-full py-3 rounded-xl font-semibold text-white shadow-lg hover:shadow-purple-500/40 transform hover:-translate-y-1 transition-all duration-300"
-                style={{ background: "var(--accent-gradient)" }}
+                className="w-full py-3 rounded-xl font-semibold text-white shadow-lg
+                   bg-gradient-to-r from-purple-500 via-pink-500 to-red-500
+                   hover:shadow-purple-500/40 transform hover:-translate-y-1 
+                   transition-all duration-300"
               >
                 Send Message →
               </button>

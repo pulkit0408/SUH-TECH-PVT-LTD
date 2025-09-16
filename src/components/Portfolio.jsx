@@ -226,6 +226,7 @@ const PortfolioSection = () => {
           </p>
         </div>
 
+        
         {/* Filter Categories */}
         <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-12 sm:mb-16">
           {categories.map((category) => (
@@ -235,20 +236,12 @@ const PortfolioSection = () => {
                 setActiveFilter(category.key);
                 setVisibleProjects(6);
               }}
-              className={`group relative px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+              className={`group relative px-6 py-3 rounded-xl font-semibold transition-all duration-300 backdrop-blur-sm ${
                 activeFilter === category.key
-                  ? 'text-white shadow-lg transform scale-105'
-                  : 'text-gray-400 hover:text-white hover:scale-105'
+                  ? 'text-white shadow-lg transform scale-105 bg-gradient-to-r from-white/10 to-white/5 border border-white/20 hover:bg-white/20 hover:border-white/30'
+                  : 'text-gray-400 hover:text-white hover:scale-105 bg-gradient-to-r from-white/10 to-white/5 border border-white/20 hover:bg-white/20 hover:border-white/30'
               }`}
             >
-              {activeFilter === category.key && (
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-blue-500 to-teal-500 rounded-xl opacity-90"></div>
-              )}
-              <div className={`absolute inset-0 rounded-xl border transition-colors ${
-                activeFilter === category.key
-                  ? 'border-transparent'
-                  : 'border-white/20 group-hover:border-white/40'
-              }`}></div>
               <span className="relative flex items-center space-x-2">
                 <span>{category.label}</span>
                 <span className={`inline-flex items-center justify-center w-6 h-6 text-xs rounded-full ${

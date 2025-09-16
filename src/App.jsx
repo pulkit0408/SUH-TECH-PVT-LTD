@@ -14,6 +14,8 @@ import ServicesSection from "./components/ServicesSection";
 import TeamSection from "./components/TeamSection";
 import Testimonials from "./components/Testimonals";
 import CareersPage from "./components/Carrer";
+import PrivacyPolicy from "./components/PrivacyPolicy";
+import TermsAndConditions from "./components/TermsAndConditions";
 
 // Home Page Component
 const HomePage = () => (
@@ -45,6 +47,12 @@ const CareersPageLayout = () => <CareersPage />;
 // Portfolio Page Layout Component
 const PortfolioPageLayout = () => <PortfolioSection />;
 
+// Privacy Policy Page Layout Component
+const PrivacyPolicyPageLayout = () => <PrivacyPolicy />;
+
+// Terms and Conditions Page Layout Component
+const TermsAndConditionsPageLayout = () => <TermsAndConditions />;
+
 const App = () => {
   return (
     <Router>
@@ -55,6 +63,11 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/careers" element={<CareersPageLayout />} />
           <Route path="/portfolio" element={<PortfolioPageLayout />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPageLayout />} />
+          <Route
+            path="/terms-and-conditions"
+            element={<TermsAndConditionsPageLayout />}
+          />
         </Routes>
 
         <Footer />
