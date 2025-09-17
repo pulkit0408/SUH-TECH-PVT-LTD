@@ -68,7 +68,7 @@ const Navigation = () => {
           {/* Contact Button */}
           <div className=" hover:scale-105 hover:shadow-lg hidden md:block">
             <a
-              href="#contact"
+              href="/#contact"
               className="text-white px-6 py-2 rounded-xl shadow-md transition-all transform "
               style={{ background: "var(--accent-gradient)" }}
             >
@@ -113,8 +113,8 @@ const Navigation = () => {
                 </a>
               ))}
               <a
-                href="#contact"
-                className="w-full inline-block text-center text-white px-6 py-2 rounded-xl shadow-md transition-all hover:scale-105"
+                href="/#contact"
+                className="w-full btn-quote inline-block text-center text-white px-6 py-2 rounded-xl shadow-md transition-all hover:scale-105"
                 style={{ background: "var(--accent-gradient)" }}
               >
                 Contact us

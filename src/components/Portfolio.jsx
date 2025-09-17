@@ -236,7 +236,7 @@ const PortfolioSection = () => {
                 setActiveFilter(category.key);
                 setVisibleProjects(6);
               }}
-              className={`group relative px-6 py-3 rounded-xl font-semibold transition-all duration-300 backdrop-blur-sm ${
+              className={`group btn-quote relative px-6 py-3 rounded-xl font-semibold transition-all duration-300 backdrop-blur-sm ${
                 activeFilter === category.key
                   ? 'text-white shadow-lg transform scale-105 bg-gradient-to-r from-white/10 to-white/5 border border-white/20 hover:bg-white/20 hover:border-white/30'
                   : 'text-gray-400 hover:text-white hover:scale-105 bg-gradient-to-r from-white/10 to-white/5 border border-white/20 hover:bg-white/20 hover:border-white/30'
@@ -244,7 +244,7 @@ const PortfolioSection = () => {
             >
               <span className="relative flex items-center space-x-2">
                 <span>{category.label}</span>
-                <span className={`inline-flex items-center justify-center w-6 h-6 text-xs rounded-full ${
+                <span className={`inline-flex  items-center justify-center w-6 h-6 text-xs rounded-full ${
                   activeFilter === category.key 
                     ? 'bg-white/20 text-white' 
                     : 'bg-gray-700 text-gray-300 group-hover:bg-gray-600'
@@ -257,7 +257,7 @@ const PortfolioSection = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
+        <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
           {displayedProjects.map((project, index) => (
             <div
               key={project.id}

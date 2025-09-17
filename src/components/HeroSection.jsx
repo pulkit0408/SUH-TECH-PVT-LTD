@@ -162,7 +162,7 @@ const HeroSection = () => {
                   <span className="btn-quote-glow"></span>
                 </a>
 
-                <a href="#portfolio" className="px-7 sm:px-8 py-3 sm:py-3.5 bg-transparent border-2 border-white/30 text-white font-semibold text-sm sm:text-base rounded-xl hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm">
+                <a href="/portfolio" className="px-7 sm:px-8 py-3 sm:py-3.5 bg-transparent border-2 border-white/30 text-white font-semibold text-sm sm:text-base rounded-xl hover:bg-white/10 hover:border-white/50 transition-all duration-300  backdrop-blur-sm">
                   Our Work
                 </a>
               </div>

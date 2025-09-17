@@ -108,8 +108,7 @@ const ContactUs = () => {
 
               <button
                 type="submit"
-                className="w-full py-3 rounded-xl font-semibold text-white shadow-lg
-                   bg-gradient-to-r from-purple-500 via-pink-500 to-red-500
+                className="w-full py-3 rounded-xl font-semibold text-white shadow-lg btn-quote
                    hover:shadow-purple-500/40 transform hover:-translate-y-1 
                    transition-all duration-300"
               >

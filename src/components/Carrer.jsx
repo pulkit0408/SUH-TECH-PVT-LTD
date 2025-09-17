@@ -363,7 +363,7 @@ ${formData.fullName}
 
                   <button
                     onClick={() => handleApplyClick(job)}
-                    className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 px-6 py-3 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg"
+                    className="bg-gradient-to-r from-purple-600 to-pink-600 btn-quote px-6 py-3 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg"
                   >
                     Apply Now
                   </button>

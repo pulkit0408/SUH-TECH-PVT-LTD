@@ -72,7 +72,7 @@ const TeamSection = () => {
             </p>
 
             <button
-              className="group inline-flex p-3 rounded-xl items-center font-semibold transition-colors"
+              className="group inline-flex p-3 rounded-xl items-center font-semibold btn-quote transition-colors"
             >
               See more Informations
               <ChevronRight className="ml-2 w-5 h-5 brand-gradient-text transition-transform group-hover:translate-x-1" />

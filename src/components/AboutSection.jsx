@@ -49,7 +49,7 @@ const AboutSection = () => {
             We value your time — and your vision. Partner with us to build
             solutions that empower your growth in the digital age.
           </p>
-          <button className="btn btn-solid">
+          <button className="btn btn-quote">
             Learn More →
           </button>
         </div>
