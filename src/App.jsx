@@ -16,6 +16,7 @@ import Testimonials from "./components/Testimonals";
 import CareersPage from "./components/Carrer";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import TermsAndConditions from "./components/TermsAndConditions";
+import LearnMore from "./components/LearnMore";
 
 // Home Page Component
 const HomePage = () => (
@@ -53,6 +54,9 @@ const PrivacyPolicyPageLayout = () => <PrivacyPolicy />;
 // Terms and Conditions Page Layout Component
 const TermsAndConditionsPageLayout = () => <TermsAndConditions />;
 
+// Learn More Page Layout Component
+const LearnMorePageLayout = () => <LearnMore />;
+
 const App = () => {
   return (
     <Router>
@@ -68,6 +72,7 @@ const App = () => {
             path="/terms-and-conditions"
             element={<TermsAndConditionsPageLayout />}
           />
+          <Route path="/learn-more" element={<LearnMorePageLayout />} />
         </Routes>
 
         <Footer />

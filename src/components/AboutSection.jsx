@@ -1,4 +1,13 @@
+import { useNavigate } from "react-router-dom";
+
 const AboutSection = () => {
+
+  const navigate = useNavigate()
+  const handleLearnMoreClick = () => {
+    navigate('/learn-more');
+    window.scrollTo(0, 0);
+  };
+
   return (
     <section
       id="about"
@@ -40,17 +49,24 @@ const AboutSection = () => {
             Designing the future of your business.
           </h2>
           <p className="subheading text-base sm:text-lg leading-relaxed text-gray-300 mb-8">
-            At <span className="font-semibold text-white">SUH TECH PRIVATE LIMITED</span>, we specialize in delivering innovative technology
-            solutions that drive business success. From product development and
-            digital marketing to game design and startup consultancy, we combine
+            At{" "}
+            <span className="font-semibold text-white">
+              SUH TECH PRIVATE LIMITED
+            </span>
+            , we specialize in delivering innovative technology solutions that
+            drive business success. From product development and digital
+            marketing to game design and startup consultancy, we combine
             expertise with passion to create impactful results.
             <br />
             <br />
             We value your time — and your vision. Partner with us to build
             solutions that empower your growth in the digital age.
           </p>
-          <button className="btn btn-quote">
-            Learn More →
+          <button
+            onClick={handleLearnMoreClick}
+            className="px-7 sm:px-8 py-3 sm:py-3.5 bg-transparent border-2 border-white/30 text-white font-semibold text-sm sm:text-base rounded-xl hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm"
+          >
+            Learn More
           </button>
         </div>
       </div>
