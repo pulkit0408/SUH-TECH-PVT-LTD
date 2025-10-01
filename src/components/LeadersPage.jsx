@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
-import { motion, useAnimation, useMotionValue } from "framer-motion";
-import LeaderCard from "./LeaderCard"; // make sure this path is correct
+import { motion, useAnimation } from "framer-motion";
+import LeaderCard from "./LeaderCard";
 
 const LeadersPage = () => {
   const leaders = [
@@ -46,65 +46,101 @@ const LeadersPage = () => {
       description:
         "As a Product Manager at SUH TECH PRIVATE LIMITED, I bridge the gap between business strategy, technology, and customer needs. I lead the product lifecycle from ideation to launch, ensuring that every feature and improvement delivers real value to users while aligning with company goals. By collaborating closely with cross-functional teams—engineering, design, and marketing—I translate vision into actionable roadmaps and drive execution. My goal is to build innovative, user-centric products that not only solve problems but also create lasting impact in the market.",
     },
+    {
+      name: "Samiksha Umbrje",
+      role: "UI/UX Designer",
+      image: "samiksha.jpg",
+      description:
+        "As a UI/UX Designer at SUH TECH PRIVATE LIMITED, I focus on creating seamless, intuitive, and visually engaging digital experiences that put users at the center. I transform complex ideas into clear and elegant interfaces by combining design thinking, user research, and creativity. From wireframes and prototypes to final designs, I ensure every interaction feels natural, consistent, and impactful. By collaborating with product managers, developers, and stakeholders, I bridge the gap between user needs and business goals. My mission is to craft designs that not only look great but also deliver measurable value, making technology more accessible, enjoyable, and human.",
+    },
+    {
+      name: "Akriti Nanda",
+      role: "Front-End Intern",
+      image: "akriti.jpg",
+      description:
+        "As a Frontend Intern at SUH TECH PRIVATE LIMITED, I contribute to building responsive, user-friendly, and scalable web applications. I translate design concepts and product requirements into clean, efficient code while ensuring seamless performance across devices. By working closely with senior developers, designers, and product managers, I gain hands-on experience in modern frontend technologies and best practices. My focus is on writing maintainable code, learning continuously, and delivering features that enhance the overall user experience. This role allows me to strengthen my technical foundation while contributing to real-world projects that make a meaningful impact.",
+    },
   ];
 
   const controls = useAnimation();
   const containerRef = useRef(null);
   const isHovered = useRef(false);
-  const currentX = useMotionValue(0);
-
-  // Function to start/continue marquee animation
-  const startAnimation = () => {
-    if (isHovered.current) return;
-
-    const currentXValue = currentX.get();
-
-    controls.start({
-      x: [currentXValue, "-50%"],
-      transition: {
-        repeat: Infinity,
-        duration: 20 * (1 - Math.abs(currentXValue) / window.innerWidth),
-        ease: "linear",
-        repeatType: "loop",
-      },
-    });
-  };
+  const cardHoveredRef = useRef(false);
 
   useEffect(() => {
-    // Start initial animation
-    controls.start({
-      x: ["0%", "-50%"],
-      transition: {
-        repeat: Infinity,
-        duration: 20,
-        ease: "linear",
-        repeatType: "loop",
-      },
-    });
+    const cardWidth = 280 + 24;
+    const totalWidth = cardWidth * leaders.length;
 
-    // Update currentX value when animation runs
-    const unsubscribe = currentX.onChange(() => {});
-    return () => unsubscribe();
-  }, [controls, currentX]);
+    const animate = () => {
+      if (!isHovered.current && !cardHoveredRef.current) {
+        controls.start({
+          x: [0, -totalWidth],
+          transition: {
+            x: {
+              repeat: Infinity,
+              repeatType: "loop",
+              duration: 30,
+              ease: "linear",
+            },
+          },
+        });
+      }
+    };
+
+    animate();
+
+    return () => {
+      controls.stop();
+    };
+  }, [controls, leaders.length]);
+
+  const handleCardHover = (isHovering) => {
+    cardHoveredRef.current = isHovering;
+    if (isHovering) {
+      controls.stop();
+    } else {
+      const cardWidth = 280 + 24;
+      const totalWidth = cardWidth * leaders.length;
+
+      controls.start({
+        x: [0, -totalWidth],
+        transition: {
+          x: {
+            repeat: Infinity,
+            repeatType: "loop",
+            duration: 30,
+            ease: "linear",
+          },
+        },
+      });
+    }
+  };
 
   const handleHoverStart = () => {
     isHovered.current = true;
-    controls.stop(); // Pause at current position
+    if (!cardHoveredRef.current) {
+      controls.stop();
+    }
   };
 
   const handleHoverEnd = () => {
     isHovered.current = false;
-    const currentXValue = currentX.get();
+    if (!cardHoveredRef.current) {
+      const cardWidth = 280 + 24;
+      const totalWidth = cardWidth * leaders.length;
 
-    controls.start({
-      x: [currentXValue, "-50%"],
-      transition: {
-        repeat: Infinity,
-        duration: 20, // keep consistent speed
-        ease: "linear",
-        repeatType: "loop",
-      },
-    });
+      controls.start({
+        x: [0, -totalWidth],
+        transition: {
+          x: {
+            repeat: Infinity,
+            repeatType: "loop",
+            duration: 30,
+            ease: "linear",
+          },
+        },
+      });
+    }
   };
 
   return (
@@ -112,17 +148,15 @@ const LeadersPage = () => {
       id="leaders"
       className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#0a0a0a] via-[#0f0f23] to-[#1a1a2e] relative overflow-hidden min-h-screen"
     >
-      {/* Background Effects */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(99,102,241,0.1),transparent)]"></div>
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(139,92,246,0.1),transparent)]"></div>
 
-      {/* Content */}
       <div className="max-w-7xl mx-auto text-center mb-8 sm:mb-12 lg:mb-16 relative z-10">
         <div className="inline-block">
           <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-4 bg-clip-text bg-gradient-to-r from-white via-[#6366f1] to-[#8b5cf6] leading-tight">
             Meet Our{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#6366f1] via-[#8b5cf6] to-[#ec4899] animate-gradient-x">
-               Team
+              Team
             </span>
           </h2>
         </div>
@@ -133,28 +167,25 @@ const LeadersPage = () => {
         </p>
       </div>
 
-      {/* Enhanced Smooth auto-scrolling carousel */}
       <div className="relative w-full overflow-hidden" ref={containerRef}>
         <motion.div
           className="flex gap-4 sm:gap-6 lg:gap-8 px-4 sm:px-6"
           animate={controls}
-          style={{ x: currentX }}
           onHoverStart={handleHoverStart}
           onHoverEnd={handleHoverEnd}
         >
-          {[...leaders, ...leaders].map((leader, index) => (
+          {[...leaders, ...leaders, ...leaders].map((leader, index) => (
             <div
               key={index}
               className="w-[280px] sm:w-[320px] lg:w-[380px] flex-shrink-0"
               style={{ minHeight: "450px" }}
             >
-              <LeaderCard {...leader} />
+              <LeaderCard {...leader} onHoverChange={handleCardHover} />
             </div>
           ))}
         </motion.div>
       </div>
 
-      {/* Gradient Overlays for smooth edges */}
       <div className="absolute left-0 top-0 w-20 sm:w-32 h-full bg-gradient-to-r from-[#0a0a0a] to-transparent pointer-events-none z-20"></div>
       <div className="absolute right-0 top-0 w-20 sm:w-32 h-full bg-gradient-to-l from-[#0a0a0a] to-transparent pointer-events-none z-20"></div>
 

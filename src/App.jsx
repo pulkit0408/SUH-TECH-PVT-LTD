@@ -17,6 +17,7 @@ import CareersPage from "./components/Carrer";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import TermsAndConditions from "./components/TermsAndConditions";
 import LearnMore from "./components/LearnMore";
+import TeamInformation from "./components/TeamInformation";
 
 // Home Page Component
 const HomePage = () => (
@@ -73,6 +74,7 @@ const App = () => {
             element={<TermsAndConditionsPageLayout />}
           />
           <Route path="/learn-more" element={<LearnMorePageLayout />} />
+          <Route path="/team-information" element={<TeamInformation/>} />
         </Routes>
 
         <Footer />

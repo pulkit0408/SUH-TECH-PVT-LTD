@@ -50,9 +50,7 @@ const ServicesSection = () => {
       style={{ backgroundColor: "var(--bg-primary)" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2
-          className="heading-lg text-3xl sm:text-4xl lg:text-5xl text-center mb-16 tracking-tight brand-gradient-text"
-        >
+        <h2 className="heading-lg text-3xl sm:text-4xl lg:text-5xl text-center mb-16 tracking-tight brand-gradient-text">
           Services we offer
         </h2>
 
@@ -63,7 +61,7 @@ const ServicesSection = () => {
               {/* Previous Service */}
               <div className="hidden lg:block animate-fadeInLeft">
                 <div
-                  className="rounded-2xl p-8 text-center opacity-50 transform scale-90 backdrop-blur-sm"
+                  className="rounded-2xl p-8 text-center opacity-50 transform scale-90 backdrop-blur-sm min-h-[420px] flex flex-col justify-between"
                   style={{
                     backgroundColor: "rgba(30,30,50,0.6)",
                     border: "1px solid var(--border-color)",
@@ -107,7 +105,7 @@ const ServicesSection = () => {
               {/* Current Service */}
               <div className="lg:col-span-1 animate-fadeIn">
                 <div
-                  className="rounded-2xl p-10 text-center transition-all shadow-xl hover:shadow-purple-500/30 hover:scale-105"
+                  className="rounded-2xl p-10 text-center transition-all shadow-xl hover:shadow-purple-500/30 hover:scale-105 min-h-[420px] flex flex-col justify-between"
                   style={{
                     background:
                       "linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(139, 92, 246, 0.12) 100%)",
@@ -139,7 +137,7 @@ const ServicesSection = () => {
               {/* Next Service */}
               <div className="hidden lg:block animate-fadeInRight">
                 <div
-                  className="rounded-2xl p-8 text-center opacity-50 transform scale-90 backdrop-blur-sm"
+                  className="rounded-2xl p-8 text-center opacity-50 transform scale-90 backdrop-blur-sm min-h-[420px] flex flex-col justify-between"
                   style={{
                     backgroundColor: "rgba(30,30,50,0.6)",
                     border: "1px solid var(--border-color)",
@@ -183,9 +181,7 @@ const ServicesSection = () => {
               border: "1px solid var(--border-color)",
             }}
           >
-            <ChevronLeft
-              className="w-6 h-6"
-            />
+            <ChevronLeft className="w-6 h-6" />
           </button>
           <button
             onClick={nextService}
@@ -195,9 +191,7 @@ const ServicesSection = () => {
               border: "1px solid var(--border-color)",
             }}
           >
-            <ChevronRight
-              className="w-6 h-6"
-            />
+            <ChevronRight className="w-6 h-6" />
           </button>
 
           {/* Indicators */}

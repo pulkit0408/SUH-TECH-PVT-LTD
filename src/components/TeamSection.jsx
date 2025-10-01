@@ -1,7 +1,9 @@
 import { ChevronRight, Play, Pause, Volume2, VolumeX } from "lucide-react";
 import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const TeamSection = () => {
+  const navigation = useNavigate()
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
@@ -71,7 +73,9 @@ const TeamSection = () => {
               delivery of your project.
             </p>
 
-            <button
+            <button onClick={()=> {
+              navigation("/team-information")
+            }}
               className="group inline-flex p-3 rounded-xl items-center font-semibold btn-quote transition-colors"
             >
               See more Informations

@@ -19,7 +19,7 @@ const Navigation = () => {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "/#home" },
+    { name: "Home", href: "#home" },
     { name: "About", href: "/#about" },
     { name: "Services", href: "/#services" },
     { name: "Contact", href: "/#contact" },
@@ -41,7 +41,13 @@ const Navigation = () => {
           {/* Logo */}
           <div className="flex items-center space-x-2 cursor-pointer">
             <div className="flex items-center justify-center shadow-md">
-              <img className="rounded-full w-16 sm:w-20" src="logo_Suh.jpg" alt="Logo" />
+              <a href="/#home">
+                <img
+                  className="rounded-full w-16 sm:w-20"
+                  src="logo_Suh.jpg"
+                  alt="Logo"
+                />
+              </a>
             </div>
             <span
               className="text-lg sm:text-xl font-bold tracking-wide"
@@ -127,11 +133,21 @@ const Navigation = () => {
       {/* Animation styles */}
       <style jsx>{`
         @keyframes slideDown {
-          from { opacity: 0; transform: translateY(-10px); }
-          to { opacity: 1; transform: translateY(0); }
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
-        .animate-slideDown { animation: slideDown 0.3s ease-out; }
-        html { scroll-behavior: smooth; }
+        .animate-slideDown {
+          animation: slideDown 0.3s ease-out;
+        }
+        html {
+          scroll-behavior: smooth;
+        }
       `}</style>
     </nav>
   );
