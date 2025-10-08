@@ -26,13 +26,6 @@ const LeadersPage = () => {
         "As the Chief Technology Officer at SUH TECH PRIVATE LIMITED, I am dedicated to driving innovation and building cutting-edge technological solutions that empower our clients. My focus is on aligning technology strategy with business goals, ensuring robust system architecture, scalability, and security.",
     },
     {
-      name: "Pulkit Pandey",
-      role: "Head of IT",
-      image: "pulkit_pic.jpg",
-      description:
-        "As the Head of IT at SUH TECH PRIVATE LIMITED, I oversee the infrastructure, systems, and networks that power our operations. My role is to ensure seamless technology integration, optimized performance, and uncompromising security. I am committed to leveraging the latest advancements to keep our IT ecosystem agile, reliable, and scalable, enabling our teams to focus on delivering exceptional solutions to clients.",
-    },
-    {
       name: "Sahil",
       role: "Game Developer",
       image: "sahil.jpg",
