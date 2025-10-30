@@ -1,21 +1,23 @@
-import React from "react";
 import {
-  ArrowRight,
-  Users,
-  Target,
-  Lightbulb,
-  Shield,
-  TrendingUp,
-  Globe,
-  Heart,
-  Zap,
-  Award,
-  CheckCircle,
-  Code,
-  Rocket,
+    ArrowRight,
+    Award,
+    CheckCircle,
+    Code,
+    Globe,
+    Heart,
+    Lightbulb,
+    Rocket,
+    Shield,
+    Target,
+    TrendingUp,
+    Users,
+    Zap,
 } from "lucide-react";
+import React, { useContext } from "react";
+import ContactUsModalContext from "./ContactUsModalContext";
 
 const TeamInformation = () => {
+  const { openModal } = useContext(ContactUsModalContext);
   return (
     <div className="mb-10" style={{ backgroundColor: "var(--bg-primary)" }}>
       {/* Hero Section */}
@@ -432,13 +434,14 @@ const TeamInformation = () => {
             our innovative technology solutions. Your success story starts here.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="#contact"
+            <button
+              type="button"
               className="btn btn-quote inline-flex items-center justify-center group"
+              onClick={openModal}
             >
               <span>Start Your Project</span>
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
+            </button>
             <a
               href="/portfolio"
               className="inline-flex items-center justify-center rounded-full border-2 border-purple-500 text-white font-medium px-8 py-4 hover:bg-purple-500/10 transition-all duration-200"

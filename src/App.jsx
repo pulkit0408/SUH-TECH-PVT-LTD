@@ -1,23 +1,25 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useState } from "react";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import AboutSection from "./components/AboutSection";
 import BlogSection from "./components/BlogSection";
+import CareersPage from "./components/Carrer";
 import ContactUs from "./components/ContactUs";
+import ContactUsModal from "./components/ContactUsModal";
+import ContactUsModalContext from "./components/ContactUsModalContext";
 import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
 import InhouseProducts from "./components/InhouseProducts";
 import LeadersPage from "./components/LeadersPage";
+import LearnMore from "./components/LearnMore";
 import Navigation from "./components/Navigation";
 import PortfolioSection from "./components/Portfolio";
+import PrivacyPolicy from "./components/PrivacyPolicy";
 import RotatingBannerSection from "./components/RotatingBannerSection";
 import ServicesSection from "./components/ServicesSection";
-import TeamSection from "./components/TeamSection";
-import Testimonials from "./components/Testimonals";
-import CareersPage from "./components/Carrer";
-import PrivacyPolicy from "./components/PrivacyPolicy";
-import TermsAndConditions from "./components/TermsAndConditions";
-import LearnMore from "./components/LearnMore";
 import TeamInformation from "./components/TeamInformation";
+import TeamSection from "./components/TeamSection";
+import TermsAndConditions from "./components/TermsAndConditions";
+import Testimonials from "./components/Testimonals";
 
 // Home Page Component
 const HomePage = () => (
@@ -58,28 +60,36 @@ const TermsAndConditionsPageLayout = () => <TermsAndConditions />;
 // Learn More Page Layout Component
 const LearnMorePageLayout = () => <LearnMore />;
 
+// App-wide context for opening/closing the Contact modal (now separate file)
+
 const App = () => {
+  const [showModal, setShowModal] = useState(false);
+  const openModal = () => setShowModal(true);
+  const closeModal = () => setShowModal(false);
+
   return (
-    <Router>
-      <div className="min-h-screen mt-15 bg-gradient-to-br from-purple-50/0 to-blue-50/0">
-        <Navigation />
+    <ContactUsModalContext.Provider value={{ openModal }}>
+      <Router>
+        <div className="min-h-screen mt-15 bg-gradient-to-br from-purple-50/0 to-blue-50/0">
+          <Navigation />
 
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/careers" element={<CareersPageLayout />} />
-          <Route path="/portfolio" element={<PortfolioPageLayout />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicyPageLayout />} />
-          <Route
-            path="/terms-and-conditions"
-            element={<TermsAndConditionsPageLayout />}
-          />
-          <Route path="/learn-more" element={<LearnMorePageLayout />} />
-          <Route path="/team-information" element={<TeamInformation/>} />
-        </Routes>
-
-        <Footer />
-      </div>
-    </Router>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/careers" element={<CareersPageLayout />} />
+            <Route path="/portfolio" element={<PortfolioPageLayout />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicyPageLayout />} />
+            <Route
+              path="/terms-and-conditions"
+              element={<TermsAndConditionsPageLayout />}
+            />
+            <Route path="/learn-more" element={<LearnMorePageLayout />} />
+            <Route path="/team-information" element={<TeamInformation/>} />
+          </Routes>
+          <ContactUsModal open={showModal} onClose={closeModal} />
+          <Footer />
+        </div>
+      </Router>
+    </ContactUsModalContext.Provider>
   );
 };
 

@@ -1,8 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import ContactUsModalContext from "./ContactUsModalContext";
 
 const PortfolioSection = () => {
   const [activeFilter, setActiveFilter] = useState("all");
   const [visibleProjects, setVisibleProjects] = useState(6);
+  const { openModal } = useContext(ContactUsModalContext);
 
   // Portfolio projects data
   const projects = [
@@ -460,19 +462,21 @@ const PortfolioSection = () => {
               proven expertise and innovative solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="#contact"
+              <button
+                type="button"
                 className="btn-quote px-8 py-4 hover:text-white text-white font-semibold rounded-xl"
+                onClick={openModal}
               >
                 Start Your Project
                 <span className="btn-quote-glow"></span>
-              </a>
-              <a
-                href="#contact"
+              </button>
+              <button
+                type="button"
                 className="px-8 py-4 bg-transparent border-2 border-white/30 text-white font-semibold rounded-xl hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm"
+                onClick={openModal}
               >
                 Schedule Consultation
-              </a>
+              </button>
             </div>
           </div>
         </div>

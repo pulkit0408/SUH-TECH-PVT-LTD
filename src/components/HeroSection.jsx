@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useContext } from "react";
+import ContactUsModalContext from "./ContactUsModalContext";
 
 const HeroSection = () => {
   const slides = useMemo(
@@ -38,6 +39,7 @@ const HeroSection = () => {
   const [index, setIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isTyping, setIsTyping] = useState(false);
+  const { openModal } = useContext(ContactUsModalContext);
 
   // Word-by-word typing animation (no sound)
   useEffect(() => {
@@ -152,7 +154,11 @@ const HeroSection = () => {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
-                <a href="#contact" className="group relative px-7 sm:px-8 py-3 sm:py-3.5 rounded-xl text-sm sm:text-base font-semibold btn-quote">
+                <button
+                  type="button"
+                  className="group relative px-7 sm:px-8 py-3 sm:py-3.5 rounded-xl text-sm sm:text-base font-semibold btn-quote"
+                  onClick={openModal}
+                >
                   <span className="relative z-10 flex items-center">
                     Request a Free Quote
                     <svg className="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
@@ -160,7 +166,7 @@ const HeroSection = () => {
                     </svg>
                   </span>
                   <span className="btn-quote-glow"></span>
-                </a>
+                </button>
 
                 <a href="/portfolio" className="px-7 sm:px-8 py-3 sm:py-3.5 bg-transparent border-2 border-white/30 text-white font-semibold text-sm sm:text-base rounded-xl hover:bg-white/10 hover:border-white/50 transition-all duration-300  backdrop-blur-sm">
                   Our Work
