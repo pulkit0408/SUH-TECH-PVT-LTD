@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState, useContext } from "react";
 import ContactUsModalContext from "./ContactUsModalContext";
+import { ChevronDown } from "lucide-react";
 
 const HeroSection = () => {
   const slides = useMemo(
@@ -91,7 +92,19 @@ const HeroSection = () => {
   const current = slides[index];
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-black">
+    <section className="relative min-h-screen flex flex-col justify-between bg-black overflow-hidden">
+      {/* SVG/Gradient Overlay for high-end look */}
+      <div className="pointer-events-none absolute inset-0 z-0">
+        <svg width="100%" height="100%" viewBox="0 0 1440 700" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full opacity-50">
+          <defs>
+            <linearGradient id="heroSvgGrad" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stopColor="#7C3AED" stopOpacity="0.13" />
+              <stop offset="100%" stopColor="#0EA5E9" stopOpacity="0.12" />
+            </linearGradient>
+          </defs>
+          <ellipse cx="720" cy="360" rx="720" ry="320" fill="url(#heroSvgGrad)" />
+        </svg>
+      </div>
       {/* Background Image Slideshow */}
       <div className="absolute inset-0">
         {slides.map((slide, i) => (
@@ -294,6 +307,12 @@ const HeroSection = () => {
             </div>
           </div>
         </div>
+      </div>
+      {/* ADD: Scroll-down Chevron to #about section */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex justify-center z-20">
+        <a href="#about" className="bg-white/10 rounded-full shadow-xl p-3 flex items-center transition hover:scale-110 hover:bg-purple-500/20">
+          <ChevronDown className="w-8 h-8 text-white animate-bounce" />
+        </a>
       </div>
     </section>
   );
