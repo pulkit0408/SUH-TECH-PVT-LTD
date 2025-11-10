@@ -1,7 +1,45 @@
-import React from "react";
-import { Mail, Phone, Linkedin, MapPin } from "lucide-react";
+import axios from "axios";
+import { Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { useState } from "react";
 
 const ContactUs = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setSuccess("");
+    setError("");
+
+    try {
+      const response = await axios.post("https://contact-ruby-ten.vercel.app/send-email", formData);
+      if (response.data.success) {
+        setSuccess("Message sent successfully!");
+        setFormData({ name: "", phone: "", email: "", message: "" });
+      } else {
+        setError("Failed to send message.");
+      }
+    } catch (err) {
+      console.error(err);
+      setError(err.response?.data?.error || "Something went wrong.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section
       id="contact"
@@ -33,8 +71,8 @@ const ContactUs = () => {
             <img
               src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80"
               alt="Customer support illustration"
-              className="w-[460px] h-[400px] max-w-full object-cover rounded-2xl 
-               drop-shadow-lg transition-all duration-500 ease-in-out 
+              className="w-[460px] h-[400px] max-w-full object-cover rounded-2xl
+               drop-shadow-lg transition-all duration-500 ease-in-out
                hover:scale-105 hover:drop-shadow-2xl"
             />
           </div>
@@ -42,25 +80,29 @@ const ContactUs = () => {
           {/* Right Side - Form */}
           <div className="bg-white/5 border border-white/10 p-10 rounded-2xl shadow-2xl backdrop-blur-md animate-fadeInRight">
             <h2 className="text-3xl font-bold text-white mb-6 tracking-tight">
-              Let’s Connect 
+              Let’s Connect
             </h2>
             <p className="text-gray-400 mb-8">
               Have questions or ideas? Fill the form below and our team will get
               back to you.
             </p>
 
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">
                   Your Name
                 </label>
                 <input
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   placeholder="Enter your name"
-                  className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 
-                     text-white placeholder-gray-400 focus:ring-2 
-                     focus:ring-purple-400 focus:border-purple-400 
+                  className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20
+                     text-white placeholder-gray-400 focus:ring-2
+                     focus:ring-purple-400 focus:border-purple-400
                      outline-none transition"
+                  required
                 />
               </div>
 
@@ -69,12 +111,16 @@ const ContactUs = () => {
                   Your Mobile Number
                 </label>
                 <input
-                  type="number"
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
                   placeholder="Enter your phone"
-                  className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 
-                     text-white placeholder-gray-400 focus:ring-2 
-                     focus:ring-purple-400 focus:border-purple-400 
+                  className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20
+                     text-white placeholder-gray-400 focus:ring-2
+                     focus:ring-purple-400 focus:border-purple-400
                      outline-none transition"
+                  required
                 />
               </div>
 
@@ -84,11 +130,15 @@ const ContactUs = () => {
                 </label>
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="Enter your email"
-                  className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 
-                     text-white placeholder-gray-400 focus:ring-2 
-                     focus:ring-purple-400 focus:border-purple-400 
+                  className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20
+                     text-white placeholder-gray-400 focus:ring-2
+                     focus:ring-purple-400 focus:border-purple-400
                      outline-none transition"
+                  required
                 />
               </div>
 
@@ -97,23 +147,31 @@ const ContactUs = () => {
                   Message
                 </label>
                 <textarea
+                  name="message"
                   rows="4"
+                  value={formData.message}
+                  onChange={handleChange}
                   placeholder="Write your message..."
-                  className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 
-                     text-white placeholder-gray-400 focus:ring-2 
-                     focus:ring-purple-400 focus:border-purple-400 
+                  className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20
+                     text-white placeholder-gray-400 focus:ring-2
+                     focus:ring-purple-400 focus:border-purple-400
                      outline-none transition"
+                  required
                 ></textarea>
               </div>
 
               <button
                 type="submit"
+                disabled={loading}
                 className="w-full py-3 rounded-xl font-semibold text-white shadow-lg btn-quote
-                   hover:shadow-purple-500/40 transform hover:-translate-y-1 
+                   hover:shadow-purple-500/40 transform hover:-translate-y-1
                    transition-all duration-300"
               >
-                Send Message →
+                {loading ? "Sending..." : "Send Message →"}
               </button>
+
+              {success && <p className="text-green-500 mt-3">{success}</p>}
+              {error && <p className="text-red-500 mt-3">{error}</p>}
             </form>
           </div>
         </div>
@@ -163,46 +221,12 @@ const ContactUs = () => {
 
       {/* Animations */}
       <style jsx>{`
-        @keyframes fadeInLeft {
-          from {
-            opacity: 0;
-            transform: translateX(-30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-        @keyframes fadeInRight {
-          from {
-            opacity: 0;
-            transform: translateX(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-        @keyframes pulseSlow {
-          0%,
-          100% {
-            transform: scale(1);
-            opacity: 0.25;
-          }
-          50% {
-            transform: scale(1.05);
-            opacity: 0.35;
-          }
-        }
-        .animate-fadeInLeft {
-          animation: fadeInLeft 0.9s ease-out forwards;
-        }
-        .animate-fadeInRight {
-          animation: fadeInRight 0.9s ease-out forwards;
-        }
-        .animate-pulse-slow {
-          animation: pulseSlow 7s infinite;
-        }
+        @keyframes fadeInLeft { from { opacity: 0; transform: translateX(-30px);} to { opacity: 1; transform: translateX(0);} }
+        @keyframes fadeInRight { from { opacity: 0; transform: translateX(30px);} to { opacity: 1; transform: translateX(0);} }
+        @keyframes pulseSlow { 0%,100% { transform: scale(1); opacity: 0.25;} 50% { transform: scale(1.05); opacity: 0.35;} }
+        .animate-fadeInLeft { animation: fadeInLeft 0.9s ease-out forwards; }
+        .animate-fadeInRight { animation: fadeInRight 0.9s ease-out forwards; }
+        .animate-pulse-slow { animation: pulseSlow 7s infinite; }
       `}</style>
     </section>
   );
